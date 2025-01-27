@@ -18,6 +18,14 @@ public class Account {
         }
     }
 
+    public void withdraw(double withdrawAmount){
+        if(withdrawAmount <= this.getBalance()){
+            balance = balance - withdrawAmount;
+        } else {
+            System.out.println("O valor de saque excede o saldo disponível!");
+        }
+    }
+
     public double getBalance(){
         return balance;
     }
@@ -28,5 +36,9 @@ public class Account {
 
     public String getName(){
         return name;
+    }
+
+    public void displayAccount(){
+        System.out.printf("%s - Saldo: R$%.2f%n", this.getName(), this.getBalance());
     }
 }

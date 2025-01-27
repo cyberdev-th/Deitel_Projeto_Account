@@ -9,8 +9,8 @@ public class AccountTest {
         Account account1 = new Account("Thiago Fernandes", 50.00);
         Account account2 = new Account("Cristiane Medrado", -7.53);
 
-        System.out.printf("%nNome do cliente da conta 1: %s%nSaldo do cliente: %.2f%n", account1.getName(), account1.getBalance());
-        System.out.printf("%nNome do cliente da conta 2: %s%nSaldo do cliente: %.2f%n", account2.getName(), account2.getBalance());
+        account1.displayAccount();
+        account2.displayAccount();
 
         System.out.print("\nInforme um valor para depositar na conta 1: ");
         double depositAmount = input.nextDouble();
@@ -18,8 +18,8 @@ public class AccountTest {
         account1.deposit(depositAmount);
 
         System.out.println("Saldos atualizados:");
-        System.out.printf("%s - Saldo: R$%.2f%n", account1.getName(), account1.getBalance());
-        System.out.printf("%s - Saldo: R$%.2f%n", account1.getName(), account2.getBalance());
+        account1.displayAccount();
+        account2.displayAccount();
 
         System.out.print("\nInforme um valor para depositar na conta 2: ");
         depositAmount = input.nextDouble();
@@ -27,8 +27,20 @@ public class AccountTest {
         account2.deposit(depositAmount);
 
         System.out.println("Saldos atualizados:");
-        System.out.printf("%s - Saldo: R$%.2f%n", account1.getName(), account1.getBalance());
-        System.out.printf("%s - Saldo: R$%.2f%n", account1.getName(), account2.getBalance());
+        account1.displayAccount();
+        account2.displayAccount();
+
+        System.out.print("\nInforme um valor a ser sacado na conta 1:");
+        double withdrawAmount = input.nextDouble();
+        account1.withdraw(withdrawAmount);
+
+        System.out.print("\nInforme um valor a ser sacado na conta 2:");
+        withdrawAmount = input.nextDouble();
+        account2.withdraw(withdrawAmount);
+
+        System.out.println("Saldos atualizados:");
+        account1.displayAccount();
+        account2.displayAccount();
 
         input.close();
     }
